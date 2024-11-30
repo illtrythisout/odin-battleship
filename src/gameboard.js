@@ -65,4 +65,8 @@ export default class Gameboard {
       this.board[row][col] = 'hit';
     }
   }
+
+  areAllShipsSunk() {
+    return this.ships.every((ship) => ship.isSunk());
+  }
 }

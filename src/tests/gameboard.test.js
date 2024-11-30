@@ -83,3 +83,21 @@ it('cannot attack previous missed shots in water', () => {
   board.receiveAttack(3, 5);
   expect(board.receiveAttack(3, 5)).toBeFalsy();
 });
+
+// areAllShipsSunk
+it('all ships are sunk', () => {
+  board.placeShip(3, 3, 5, 'horizontal');
+  board.receiveAttack(3, 5);
+  board.receiveAttack(3, 6);
+  board.receiveAttack(3, 7);
+  expect(board.areAllShipsSunk()).toBeTruthy();
+});
+it('all ships are not sunk', () => {
+  board.placeShip(3, 3, 5, 'horizontal');
+  board.receiveAttack(3, 5);
+  board.receiveAttack(3, 6);
+  board.receiveAttack(3, 7);
+
+  board.placeShip(3, 5, 5, 'horizontal');
+  expect(board.areAllShipsSunk()).toBeFalsy();
+});
