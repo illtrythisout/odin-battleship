@@ -50,4 +50,19 @@ export default class Gameboard {
     }
     return true;
   }
+
+  receiveAttack(row, col) {
+    const cell = this.board[row][col];
+
+    // check if cell has already been attacked
+    if (cell === 'hit' || cell === 'miss') return false;
+
+    // if attack misses
+    if (cell === 0) this.board[row][col] = 'miss';
+    // if attack hits
+    if (cell instanceof Ship) {
+      cell.hit();
+      this.board[row][col] = 'hit';
+    }
+  }
 }
