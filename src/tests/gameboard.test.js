@@ -35,20 +35,20 @@ it('board property starts as a graph filled with objects {type: water, isHit: fa
 });
 it('board adds ship to the ships property', () => {
   board.placeShip(3, 3, 5, 'horizontal');
-  expect(board.ships).toEqual([{ length: 3, hits: 0, sunk: false }]);
+  expect(board.ships).toEqual([{ length: 3, hits: 0 }]);
 });
 
 // placeShip
 it('board correctly places ship horizontally', () => {
   board.placeShip(2, 3, 5, 'horizontal');
-  expect(board.board[3][5]).toEqual({ length: 2, hits: 0, sunk: false });
-  expect(board.board[3][6]).toEqual({ length: 2, hits: 0, sunk: false });
+  expect(board.board[3][5]).toEqual({ length: 2, hits: 0 });
+  expect(board.board[3][6]).toEqual({ length: 2, hits: 0 });
   expect(board.board[3][7]).toEqual(0);
 });
 it('board correctly places ship vertically', () => {
   board.placeShip(2, 3, 5, 'vertical');
-  expect(board.board[3][5]).toEqual({ length: 2, hits: 0, sunk: false });
-  expect(board.board[4][5]).toEqual({ length: 2, hits: 0, sunk: false });
+  expect(board.board[3][5]).toEqual({ length: 2, hits: 0 });
+  expect(board.board[4][5]).toEqual({ length: 2, hits: 0 });
   expect(board.board[5][5]).toEqual(0);
 });
 it("board does'nt place ships when there already are ships", () => {
