@@ -2,7 +2,7 @@ import Gameboard from './gameboard';
 
 export default class Player {
   constructor(type) {
-    this.type = type;
+    this.type = type; // human or computer
     this.board = new Gameboard();
   }
 
@@ -13,16 +13,24 @@ export default class Player {
       let placed = false;
 
       while (!placed) {
-        const row = Math.random() * 10;
-        const col = Math.random() * 10;
+        const row = Math.floor(Math.random() * 10);
+        const col = Math.floor(Math.random() * 10);
         const direction = Math.random() > 0.5 ? 'horizontal' : 'vertical';
 
         // if it is possible to place the ship, place it
-        if (this.board.placeShip(length, row, col, direction)) {
-          this.board.placeShip(length, row, col, direction);
-          placed = true;
-        }
+        if (this.board.placeShip(length, row, col, direction)) placed = true;
       }
     });
+  }
+
+  getShotRandomly() {
+    let shot = false;
+
+    while (!shot) {
+      const row = Math.floor(Math.random() * 10);
+      const col = Math.floor(Math.random() * 10);
+
+      if (this.board.receiveAttack(row, col)) shot = true;
+    }
   }
 }

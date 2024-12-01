@@ -19,7 +19,7 @@ export default class Gameboard {
       if (col + length > 10) return false;
       // check if all cells are empty
       for (let i = 0; i < length; i++) {
-        if (this.board[row][col + i]) return false;
+        if (this.board[row][col + i] !== 0) return false;
       }
 
       // create new Ship object
@@ -36,7 +36,7 @@ export default class Gameboard {
       if (row + length > 10) return false;
       // check if all cells are empty
       for (let i = 0; i < length; i++) {
-        if (this.board[row + i][col]) return false;
+        if (this.board[row + i][col] !== 0) return false;
       }
 
       // create new Ship object
@@ -58,12 +58,16 @@ export default class Gameboard {
     if (cell === 'hit' || cell === 'miss') return false;
 
     // if attack misses
-    if (cell === 0) this.board[row][col] = 'miss';
+    if (cell === 0) {
+      this.board[row][col] = 'miss';
+    }
     // if attack hits
     if (cell instanceof Ship) {
       cell.hit();
       this.board[row][col] = 'hit';
     }
+
+    return true;
   }
 
   areAllShipsSunk() {
