@@ -5,7 +5,6 @@ export default class DOM {
     this.playerBoard = document.querySelector('#playerGameboard .board');
     this.computerBoard = document.querySelector('#computerGameboard .board');
     this.messageContainer = document.querySelector('.message');
-    document.body.appendChild(this.messageContainer);
   }
 
   renderBoard(player, type, hideShips = false) {

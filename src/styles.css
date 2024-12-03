@@ -42,6 +42,7 @@ body > * {
 }
 
 h1 { text-align: center; }
+h2 { text-align: center; }
 
 .gameContainer {
   display: flex;
@@ -84,7 +85,3 @@ h1 { text-align: center; }
 .board > .cell.hit { background-color: #dc2626; }
 .board > .cell.hit { background-color: #dc2626; }
 .board > .cell.miss { background-color: #94a3b8; }
-
-.message {
-  text-align: center;
-}
