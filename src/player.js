@@ -30,7 +30,10 @@ export default class Player {
       const row = Math.floor(Math.random() * 10);
       const col = Math.floor(Math.random() * 10);
 
-      if (this.board.receiveAttack(row, col)) shot = true;
+      if (this.board.receiveAttack(row, col)) {
+        shot = true;
+        return { row: row, col: col };
+      }
     }
   }
 }

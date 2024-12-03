@@ -1,4 +1,5 @@
 import './styles.css';
-import runGame from './gameManager';
+import GameManager from './gameManager';
 
-runGame();
+// start the game
+new GameManager();
