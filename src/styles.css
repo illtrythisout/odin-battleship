@@ -73,10 +73,10 @@ h1 { text-align: center; }
 
   transition: 0.1s;
 }
-.board > .cell#cell00 { border-top-left-radius: var(--border-radius); }
-.board > .cell#cell09 { border-top-right-radius: var(--border-radius); }
-.board > .cell#cell90 { border-bottom-left-radius: var(--border-radius); }
-.board > .cell#cell99 { border-bottom-right-radius: var(--border-radius); }
+.board > .cell[data-row="0"][data-col="0"] { border-top-left-radius: var(--border-radius); }
+.board > .cell[data-row="0"][data-col="9"] { border-top-right-radius: var(--border-radius); }
+.board > .cell[data-row="9"][data-col="0"] { border-bottom-left-radius: var(--border-radius); }
+.board > .cell[data-row="9"][data-col="9"] { border-bottom-right-radius: var(--border-radius); }
 #computerGameboard .board > .cell:hover { background-color: var(--primary-color); }
 
 /* Different Cell Types */
