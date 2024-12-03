@@ -5,6 +5,7 @@ export default class DOM {
     this.playerBoard = document.querySelector('#playerGameboard .board');
     this.computerBoard = document.querySelector('#computerGameboard .board');
     this.messageContainer = document.querySelector('.message');
+    this.cellClickHandler = null; // Store event listener references
   }
 
   renderBoard(player, type, hideShips = false) {
@@ -44,14 +45,27 @@ export default class DOM {
   onCellClick(callback, type = 'computer') {
     const board = type === 'player' ? this.playerBoard : this.computerBoard;
 
-    board.addEventListener('click', (e) => {
+    // Save the event listener reference
+    this.cellClickHandler = (e) => {
       const cell = e.target;
       if (cell.classList.contains('cell')) {
         const row = parseInt(cell.dataset.row, 10);
         const col = parseInt(cell.dataset.col, 10);
         callback(row, col);
       }
-    });
+    };
+
+    board.addEventListener('click', this.cellClickHandler);
+  }
+
+  onCellClickRemove(callback, type = 'computer') {
+    const board = type === 'player' ? this.playerBoard : this.computerBoard;
+
+    // Use the stored reference to remove the listener
+    if (this.cellClickHandler) {
+      board.removeEventListener('click', this.cellClickHandler);
+      this.cellClickHandler = null; // Clean up the reference
+    }
   }
 
   displayMessage(message) {

@@ -35,6 +35,7 @@ export default class GameManager {
     // check if the player has won
     if (this.computer.board.areAllShipsSunk()) {
       this.dom.displayMessage('Player Wins!');
+      this.dom.onCellClickRemove((row, col) => this.handlePlayerMove(row, col));
       return;
     }
 
@@ -64,6 +65,7 @@ export default class GameManager {
     // check if the computer has won
     if (this.player.board.areAllShipsSunk()) {
       this.dom.displayMessage('Computer Wins!');
+      this.dom.onCellClickRemove((row, col) => this.handlePlayerMove(row, col));
       return;
     }
   }
