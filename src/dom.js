@@ -41,8 +41,10 @@ export default class DOM {
     }
   }
 
-  onCellClick(callback) {
-    this.computerBoard.addEventListener('click', (e) => {
+  onCellClick(callback, type = 'computer') {
+    const board = type === 'player' ? this.playerBoard : this.computerBoard;
+
+    board.addEventListener('click', (e) => {
       const cell = e.target;
       if (cell.classList.contains('cell')) {
         const row = parseInt(cell.dataset.row, 10);
