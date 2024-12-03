@@ -85,3 +85,10 @@ h2 { text-align: center; }
 .board > .cell.hit { background-color: #dc2626; }
 .board > .cell.hit { background-color: #dc2626; }
 .board > .cell.miss { background-color: #94a3b8; }
+
+.cell.preview-valid {
+  background-color: rgba(0, 255, 0, 0.5); /* Green for valid placement */
+}
+.cell.preview-invalid {
+  background-color: rgba(255, 0, 0, 0.5); /* Red for invalid placement */
+}
