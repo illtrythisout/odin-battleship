@@ -4,7 +4,7 @@ export default class DOM {
   constructor() {
     this.playerBoard = document.querySelector('#playerGameboard .board');
     this.computerBoard = document.querySelector('#computerGameboard .board');
-    this.messageContainer = document.createElement('div');
+    this.messageContainer = document.querySelector('.message');
     document.body.appendChild(this.messageContainer);
   }
 
@@ -55,6 +55,5 @@ export default class DOM {
 
   displayMessage(message) {
     this.messageContainer.textContent = message;
-    this.messageContainer.classList.add('message');
   }
 }
